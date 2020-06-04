@@ -1,0 +1,13 @@
+<form #form="ngForm" class="container" (submit)="onClick(form)">
+    <input type="hidden" #CategoryId="ngModel" name="CategoryId" [(ngModel)]="categoryTapi.category.CategoryId">
+    <div class="form-group">
+      <label for="CategoryName">CategoryName</label>
+      <input type="text" #CategoryName="ngModel" 
+      class="form-control" name="CategoryName" [(ngModel)]="categoryTapi.category.CategoryName">
+    </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+<br>
+
+<app-category-list></app-category-list>

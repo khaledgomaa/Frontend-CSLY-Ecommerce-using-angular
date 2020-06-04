@@ -1,0 +1,39 @@
+<div class="container">
+  <input class="form-control" type="search" name="searchValue" [(ngModel)]="searchValue">
+</div>
+<br>
+
+<table class="table table-striped table-dark " class="container">
+    <thead>
+      <tr>
+        <th scope="col">CategoryId</th>
+        <th scope="col">CategoryName</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cat of categoryTapi.categoryList | filter: searchValue " (click)="populateForm(cat)" >
+        <td>{{cat.CategoryId}}</td>
+        <td>{{cat.CategoryName}}</td>
+        <td><button (click)="deleteRecord(cat.CategoryId)" 
+            class="btn btn-sm btn-outer-danger" style="color: red;">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+<br>
+<div class="container">
+  <nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <button type="button" class="btn btn-link" [disabled]="check" (click)="detectPrevious()">Previous</button>
+    </li>
+    <li class="page-item"><a class="page-link">{{count}}</a></li>
+    <li class="page-item">
+      <button type="button" class="btn btn-link" (click)="detectNext()">Next</button>
+    </li>
+  </ul>
+</nav>
+<select [(ngModel)]="currentStatus" (change)="changeStatus()">
+  <option [value]="item" *ngFor="let item of statusList">{{item}}</option>
+</select>
+</div>

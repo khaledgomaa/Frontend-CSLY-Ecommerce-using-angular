@@ -1,0 +1,35 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand">CSLY</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="" *ngIf="(loginStatus$ | async) as loginStatus">Home <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/categories" *ngIf="(loginStatus$ | async) as loginStatus">Categories <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/products" *ngIf="(loginStatus$ | async) as loginStatus">Products <span class="sr-only">(current)</span></a>
+        </li>
+       
+        
+      </ul>
+      <div class="text-right">
+        <button class="btn btn-outline-success my-0 my-sm-0" *ngIf="!(loginStatus$ | async) as loginStatus" routerLink="/login" type="button">LOGIN</button>
+        <button class="btn btn-outline-success my-0 my-sm-0 top-buffer" *ngIf="!(loginStatus$ | async) as loginStatus" routerLink="/signup" type="button">SIGNUP</button>
+        <a class="text-danger my-0 my-sm-0 top-buffer" *ngIf="(loginStatus$ | async) as loginStatus">{{userName$ | async}}</a>
+        <button class="btn btn-outline-success my-0 my-sm-0 top-buffer" *ngIf="(loginStatus$ | async) as loginStatus" (click)="logout()" type="button">LOGOUT</button>
+    </div>
+    </div>
+  </nav>
+

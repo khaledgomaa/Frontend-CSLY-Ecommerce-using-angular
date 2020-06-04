@@ -1,0 +1,35 @@
+<form #form="ngForm" class="container" (submit)="onClick(form)">
+    <input type="hidden" class="form-control" name="ProductId" [(ngModel)]="productapi.product.ProductId">
+    <div class="form-group">
+        <label for="ProductName">ProductName</label>
+        <input type="text" class="form-control" name="ProductName" [(ngModel)]="productapi.product.ProductName">
+    </div>
+
+    <div class="form-group">
+        <label for="Category">Select Category</label><br>
+        <select class="form-group" [(ngModel)]="productapi.product.CategoryId" name="CategoryId">
+            <option [value]="cat.CategoryId" *ngFor="let cat of productapi.categoryList">{{cat.CategoryName}}</option>
+        </select>    
+    </div>
+
+    <div class="form-group">
+        <label for="Amount">Amount</label>
+        <input type="text" class="form-control" name="Amount" [(ngModel)]="productapi.product.Amount">
+    </div>
+
+    <div class="form-group">
+        <label for="Price">Price</label>
+        <input type="text" class="form-control" name="Price" [(ngModel)]="productapi.product.Price">
+    </div>
+
+    <div class="form-group">
+        <label for="ImagePath">Upload the image</label>
+        <input type="file" class="form-control-file"
+         (change)="onFileSelected($event.target.files)" name="ImagePath" accept="image/*">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+
+</form>
+
