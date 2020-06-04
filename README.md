@@ -1,5 +1,7 @@
 # CslyAngular
 
+this project is the frontend for web api csly project as a backend so this project allows admins to manage products and categories like add new categories or new products . just download csly web api project from here : https://github.com/khaledgomaa/Ecommerce-Website-CSLY-web-api-.git and also download this project and run npm install to install the required node_modules then run the server backend (csly web api) then run this project and have fun =D
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
 
 ## Development server
